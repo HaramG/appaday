@@ -1,0 +1,243 @@
+<h1>
+  {{title}}
+</h1>
+<style>
+  .inline{
+    display: inline-block
+  }
+  .relative{
+    position:relative
+  }
+  .numbernotif{
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ff3d3d;
+    position:absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px
+  }
+  .notificon{
+    position:absolute;
+    left: 0;
+    top: 0
+  }
+</style>
+<div (window:onresize)="shared.setBases" id="welcome" [@display]="shared.animations.display">
+  <div *ngIf="shared.welcome" [ngStyle]="{
+    'position': 'fixed',
+    'width': '100%',
+    'top': '10%'
+  }">
+    <div class="inline relative"[ngStyle]="{
+      'margin': 1 * shared.widthbase + 'px',
+      'width': shared.widthbase * 23 + 'px',
+      'max-height': shared.heightbase * 88 + 'px',
+      'border-style': 'solid',
+      'border-width': '1px',
+      'border-color': 'black',
+      'background-color': 'white'
+    }"><div [ngStyle]="{
+      'background': 'linear-gradient(to bottom right, lightgrey , white)',
+      'height': shared.heightbase * 10 + 'px',
+      'width': shared.widthbase * 7 + 'px'
+    }">
+      <img src="https://firebasestorage.googleapis.com/v0/b/health-7ac65.appspot.com/o/question.png?alt=media&token=3921550a-a40f-4f7d-85e4-320e36cb1e14" class="notificon"[ngStyle]="{
+        'max-width': shared.widthbase * 7 + 'px',
+        'max-height': shared.heightbase * 10 + 'px'
+      }"></div>
+      <div class="bbottom"[ngStyle]="{
+        'position': 'absolute',
+        'left': '0',
+        'right': '0',
+        'height': shared.heightbase * 10 + 'px'
+      }"*ngFor="let creation of shared.welcomemenu.creations">
+        <img (click)="creation.creator = !creation.creator"[src]="creation.photo" [ngStyle]="{
+          'position': 'absolute',
+          'right': '0',
+          'bottom': '0',
+          'max-height': shared.heightbase * 10 + 'px',
+          'max-width': shared.widthbase * 7 + 'px' 
+        }"><div [ngStyle]="{
+          'position': 'absolute',
+          'background-color': 'hsla(305, 75%, 2%, 0.65)',
+          'right': shared.widthbase * 7 + 'px',
+          'left': '0',
+          'top': '0',
+          'bottom': '0'
+        }" *ngIf="creation.creator" class="creatorMenu">
+        </div>
+        <span [ngStyle]="{}"class="date">{{creation.date | date}}</span>
+        <span [@scroll]="shared.animations.scroll"[ngStyle]="{
+          'height': shared.heightbase * 3 + 'px',
+          'position': 'absolute',
+          'left': '0',
+          'top': '0',
+          'width': shared.widthbase * 10 + 'px'
+        }"class="title">{{creation.title}}</span>
+        <span class="plus">{{creation.plus}}</span>
+      </div>
+      <div class="numbernotif"[ngStyle]="{
+        'width': shared.widthbase * 3 + 'px'
+      }"><span class="relative inline">{{shared.welcomemenu.notifications}}</span></div>
+    </div>
+    <div class="inline relative"[ngStyle]="{
+      'margin': 1 * shared.widthbase + 'px',
+      'width': shared.widthbase * 23 + 'px',
+      'max-height': shared.heightbase * 90 + 'px',
+      'border-style': 'solid',
+      'border-width': '1px',
+      'border-color': 'purple',
+      'background-color': '#eaa5ff'
+    }"><div [ngStyle]="{
+      'background': 'linear-gradient(to bottom right, white , #eaa5ff)',
+      'height': shared.heightbase * 10 + 'px',
+      'width': shared.widthbase * 7 + 'px'
+    }">
+      <img src="https://firebasestorage.googleapis.com/v0/b/health-7ac65.appspot.com/o/Flower-Life.png?alt=media&token=558ad436-b39a-47ee-b9b3-560c4e1bd66c" class="notificon"[ngStyle]="{
+        'max-width': shared.widthbase * 7 + 'px',
+        'max-height': shared.heightbase * 10 + 'px'
+      }"></div>
+      <div class="bbottom"[ngStyle]="{
+        'position': 'absolute',
+        'left': '0',
+        'right': '0',
+        'height': shared.heightbase * 10 + 'px'
+      }"*ngFor="let creation of shared.welcomemenu.creations">
+        <img (click)="creation.creator = !creation.creator"[src]="creation.photo" [ngStyle]="{
+          'position': 'absolute',
+          'right': '0',
+          'bottom': '0',
+          'max-height': shared.heightbase * 10 + 'px',
+          'max-width': shared.widthbase * 7 + 'px' 
+        }"><div [ngStyle]="{
+          'position': 'absolute',
+          'background-color': 'hsla(305, 75%, 2%, 0.65)',
+          'right': shared.widthbase * 7 + 'px',
+          'left': '0',
+          'top': '0',
+          'bottom': '0'
+        }" *ngIf="creation.creator" class="creatorMenu">
+        </div>
+        <span [ngStyle]="{}"class="date">{{creation.date | date}}</span>
+        <span [@scroll]="shared.animations.scroll"[ngStyle]="{
+          'height': shared.heightbase * 3 + 'px',
+          'position': 'absolute',
+          'left': '0',
+          'top': '0',
+          'width': shared.widthbase * 10 + 'px'
+        }"class="title">{{creation.title}}</span>
+        <span class="plus">{{creation.plus}}</span>
+      </div>
+      <div class="numbernotif"[ngStyle]="{
+        'width': shared.widthbase * 3 + 'px'
+      }"><span class="relative inline">{{shared.welcomemenu.newCreations}}</span></div>
+    </div>
+    <div class="inline relative"[ngStyle]="{
+      'margin': 1 * shared.widthbase + 'px',
+      'width': shared.widthbase * 23 + 'px',
+      'max-height': shared.heightbase * 90 + 'px',
+      'border-style': 'solid',
+      'border-width': '1px',
+      'border-color': 'yellow',
+      'background-color': '#f4ffa8'
+    }"><div [ngStyle]="{
+      'background': 'linear-gradient(to bottom right, white , #f4ffa8)',
+      'height': shared.heightbase * 10 + 'px',
+      'width': shared.widthbase * 7 + 'px'
+    }">
+      <img src="https://firebasestorage.googleapis.com/v0/b/health-7ac65.appspot.com/o/Flower-Life.png?alt=media&token=558ad436-b39a-47ee-b9b3-560c4e1bd66c" class="notificon"[ngStyle]="{
+        'max-width': shared.widthbase * 7 + 'px',
+        'max-height': shared.heightbase * 10 + 'px'
+      }"></div>
+      <div class="bbottom"[ngStyle]="{
+        'position': 'absolute',
+        'left': '0',
+        'right': '0',
+        'height': shared.heightbase * 10 + 'px'
+      }"*ngFor="let creation of shared.welcomemenu.creations">
+        <img (click)="creation.creator = !creation.creator"[src]="creation.photo" [ngStyle]="{
+          'position': 'absolute',
+          'right': '0',
+          'bottom': '0',
+          'max-height': shared.heightbase * 10 + 'px',
+          'max-width': shared.widthbase * 7 + 'px' 
+        }"><div [ngStyle]="{
+          'position': 'absolute',
+          'background-color': 'hsla(305, 75%, 2%, 0.65)',
+          'right': shared.widthbase * 7 + 'px',
+          'left': '0',
+          'top': '0',
+          'bottom': '0'
+        }" *ngIf="creation.creator" class="creatorMenu">
+        </div>
+        <span [ngStyle]="{}"class="date">{{creation.date | date}}</span>
+        <span [@scroll]="shared.animations.scroll"[ngStyle]="{
+          'height': shared.heightbase * 3 + 'px',
+          'position': 'absolute',
+          'left': '0',
+          'top': '0',
+          'width': shared.widthbase * 10 + 'px'
+        }"class="title">{{creation.title}}</span>
+        <span class="plus">{{creation.plus}}</span>
+      </div>
+      <div class="numbernotif"[ngStyle]="{
+        'width': shared.widthbase * 3 + 'px'
+      }"><span class="relative inline">{{shared.welcomemenu.newPosts}}</span></div>
+    </div>
+    <div class="inline relative"[ngStyle]="{
+      'margin': 1 * shared.widthbase + 'px',
+      'width': shared.widthbase * 23 + 'px',
+      'max-height': shared.heightbase * 90 + 'px',
+      'border-style': 'solid',
+      'border-width': '1px',
+      'border-color': 'green',
+      'background-color': '#adffb6'
+    }"><div [ngStyle]="{
+      'background': 'linear-gradient(to bottom right, white , #adffb6)',
+      'height': shared.heightbase * 10 + 'px',
+      'width': shared.widthbase * 7 + 'px'
+    }">
+      <img src="https://firebasestorage.googleapis.com/v0/b/health-7ac65.appspot.com/o/Flower-Life.png?alt=media&token=558ad436-b39a-47ee-b9b3-560c4e1bd66c" class="notificon"[ngStyle]="{
+        'max-width': shared.widthbase * 7 + 'px',
+        'max-height': shared.heightbase * 10 + 'px'
+      }"></div>
+      <div class="bbottom"[ngStyle]="{
+        'position': 'absolute',
+        'left': '0',
+        'right': '0',
+        'height': shared.heightbase * 10 + 'px'
+      }"*ngFor="let creation of shared.welcomemenu.creations">
+        <img (click)="creation.creator = !creation.creator"[src]="creation.photo" [ngStyle]="{
+          'position': 'absolute',
+          'right': '0',
+          'bottom': '0',
+          'max-height': shared.heightbase * 10 + 'px',
+          'max-width': shared.widthbase * 7 + 'px' 
+        }"><div [ngStyle]="{
+          'position': 'absolute',
+          'background-color': 'hsla(305, 75%, 2%, 0.65)',
+          'right': shared.widthbase * 7 + 'px',
+          'left': '0',
+          'top': '0',
+          'bottom': '0'
+        }" *ngIf="creation.creator" class="creatorMenu">
+        </div>
+        <span [ngStyle]="{}"class="date">{{creation.date | date}}</span>
+        <span [@scroll]="shared.animations.scroll"[ngStyle]="{
+          'height': shared.heightbase * 3 + 'px',
+          'position': 'absolute',
+          'left': '0',
+          'top': '0',
+          'width': shared.widthbase * 10 + 'px'
+        }"class="title">{{creation.title}}</span>
+        <span class="plus">{{creation.plus}}</span>
+      </div>
+      <div class="numbernotif"[ngStyle]="{
+        'width': shared.widthbase * 3 + 'px'
+      }"><span class="relative inline">{{shared.welcomemenu.newProducts}}</span></div>
+    </div>
+  </div>
+
+</div>
+<router-outlet></router-outlet>
